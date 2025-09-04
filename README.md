@@ -1,69 +1,33 @@
-# React + TypeScript + Vite
+# 🚗 Compra Tu Auto (CTA) - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Materia:** Prácticas de Desarrollo de Software  
+**Cuatrimestre:** 2° - 2025  
+**Universidad Nacional de Quilmes**
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Introducción
 
-## Expanding the ESLint configuration
+La **Aplicación Compra Tu Auto (CTA)** es un proyecto solicitado por la **A.C.A.R.A. (Asociación de Concesionarios de Automotores de la R.A.)** con el objetivo de ayudar a clientes y agencias a gestionar la compra de autos 0km.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+El frontend, desarrollado en **React + TypeScript**, permite a los usuarios:
+- Consultar autos publicados por diferentes concesionarias.
+- Guardar autos como favoritos.
+- Puntuar y comentar sobre autos de interés.
+- Realizar búsquedas avanzadas con filtros (marca, precio, palabra clave, etc.).
+- Consultar compras realizadas con el precio histórico del momento.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Además, el sistema soporta **diferentes roles de usuario**:
+- **Comprador**: consulta autos, realiza compras y guarda favoritos.  
+- **Concesionaria**: administra publicaciones y visualiza ventas.  
+- **Administrador**: gestiona usuarios, concesionarias y genera reportes del sistema.  
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Tecnologías principales
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- [React](https://react.dev/) + [Vite](https://vitejs.dev/)  
+- [TypeScript](https://www.typescriptlang.org/)  
+- [React Router](https://reactrouter.com/) (navegación)  
+- [Axios](https://axios-http.com/) (consumo de API)  
+---
