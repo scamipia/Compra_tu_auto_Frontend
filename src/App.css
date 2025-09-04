@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; 
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.modelos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 20px;
+}

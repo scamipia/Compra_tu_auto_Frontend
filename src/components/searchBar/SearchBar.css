@@ -1,0 +1,18 @@
+
+.busqueda {
+  margin: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.busqueda input, .busqueda select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.filtros {
+  display: flex;
+  gap: 10px;
+}
