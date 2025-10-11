@@ -5,6 +5,7 @@ import type { User, LoginResponse } from '../types'
 
 interface UserContextProps {
   user: User | null
+  setUser: (user: User | null) => void
   login: (username: string, password: string) => Promise<void>
   logout: () => void
 }
@@ -55,7 +56,7 @@ const UserProvider = ({ children }: { children: ReactNode }) => {
   }
 
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
+    <UserContext.Provider value={{ user, setUser, login, logout }}>
       {children}
     </UserContext.Provider>
   )

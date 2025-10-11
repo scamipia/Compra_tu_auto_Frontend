@@ -27,9 +27,10 @@ const login = async (body: { username: string; password: string }): Promise<Axio
 };
 
 const register = async (body: {
-    name: string
+    name: string;
     username: string;
     password: string;
+    role: string;
 }) => {
     return post(`${API_BASE_URL}register`, body);
 };

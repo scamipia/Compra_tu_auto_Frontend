@@ -1,0 +1,46 @@
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+  background-color: var(--background-color);
+  font-family: sans-serif;
+}
+
+.register-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: var(--card-background);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px var(--shadow-color);
+  width: 320px;
+}
+
+.register-container input,
+.register-container select,
+.register-container button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+}
+
+.register-container button {
+  background-color: var(--primary-color);
+  color: var(--card-background);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.register-container button:hover {
+  background-color: var(--primary-hover);
+}
+
+.register-container .error {
+  color: var(--error-color);
+  font-size: 0.9rem;
+}
