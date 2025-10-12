@@ -42,6 +42,18 @@ export default function Login() {
         />
         <button type="submit">Ingresar</button>
         {error && <p className="error">{error}</p>}
+        
+        <div className="register-link">
+          <p>¿No tenés cuenta?</p>
+          <button
+            type="button"
+            className="register-button"
+            onClick={() => navigate('/register')}
+          >
+            Registrarse
+          </button>
+        </div>
+        
       </form>
     </div>
   )
