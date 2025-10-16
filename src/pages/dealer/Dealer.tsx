@@ -46,7 +46,7 @@ export default function Dealer() {
             id={post.id}  // <- usamos el id real del post
             name={`${post.make} ${post.model}`}
             price={`$${post.price.toLocaleString('es-AR')}`}
-            imageUrl={post.image}
+            imageUrl={`/images/${post.image}`} 
             dealer={{ id: Number(id), name: post.dealer }}
           />
         ))}

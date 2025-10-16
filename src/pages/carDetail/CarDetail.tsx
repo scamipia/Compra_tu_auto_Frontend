@@ -32,7 +32,10 @@ export default function CarDetail() {
 
   return (
     <div className="car-detail">
-      <img src={post.image} alt={`${post.make} ${post.model}`} />
+      <img 
+        src={`/images/${post.image}`} 
+        alt={`${post.make} ${post.model}`} 
+      />
       <h2>{post.make} {post.model}</h2>
       <p className="price">${post.price.toLocaleString('es-AR')}</p>
       <p>

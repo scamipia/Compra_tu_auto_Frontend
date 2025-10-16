@@ -62,7 +62,7 @@ const searchPosts = async (filters: {
     if (filters.page !== undefined) params.append('page', filters.page.toString())
     if (filters.size !== undefined) params.append('size', filters.size.toString())
 
-    return get(`/search?${params.toString()}`)
+    return get(`/post/search?${params.toString()}`)
 }
 
 const getDealer = async (dealerId: string | number): Promise<AxiosResponse<Dealer>> => {

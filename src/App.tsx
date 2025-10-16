@@ -33,14 +33,14 @@ function App() {
       <SearchBar />
 
       <div className="modelos">
-        {posts.map((post, index) => (
+        {posts.map((post) => (
           <ModelCard
-            key={index}
-            id={index + 1}
+            key={post.id}
+            id={post.id}
             name={`${post.make} ${post.model}`}
             price={`$${post.price.toLocaleString()}`}
             imageUrl={`/images/${post.image}`}
-            dealer={{ id: index + 1, name: post.dealer }}
+            dealer={{ id: post.dealerId, name: post.dealer }} // ✅ dealerId real
           />
         ))}
       </div>
