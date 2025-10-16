@@ -2,29 +2,47 @@ import './App.css'
 import Header from './components/header/Header'
 import SearchBar from './components/searchBar/SearchBar'
 import ModelCard from './components/modelCard/ModelCard'
+import { useEffect, useState } from 'react'
+import type { PostResponseDTO } from './types'
+import Api from './services/Api'
 
 function App() {
+  const [posts, setPosts] = useState<PostResponseDTO[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await Api.searchPosts({ page: 0, size: 10 })
+        setPosts(response.data.content)
+      } catch (error) {
+        console.error('Error cargando publicaciones:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchPosts()
+  }, [])
+
+  if (loading) return <p>Cargando publicaciones...</p>
+  
   return (
     <>
       <Header />
       <SearchBar />
 
       <div className="modelos">
-        <ModelCard
-          name="Peugeot 208"
-          price="$35.000.000"
-          imageUrl="https://www.carone.com.ar/wp-content/uploads/2021/12/1__8_-removebg-preview.png"
-        />
-        <ModelCard
-          name="Jeep Commander"
-          price="$60.000.000"
-          imageUrl="https://www.carone.com.ar/wp-content/uploads/2025/07/LIMITED-scaled.png"
-        />
-        <ModelCard
-          name="Fiat Pulse"
-          price="$34.500.000"
-          imageUrl="https://www.carone.com.ar/wp-content/uploads/2022/05/Pulse_Impetus_0046-2-e1652049876226.png"
-        />
+        {posts.map((post, index) => (
+          <ModelCard
+            key={index}
+            id={index + 1}
+            name={`${post.make} ${post.model}`}
+            price={`$${post.price.toLocaleString()}`}
+            imageUrl={`/images/${post.image}`}
+            dealer={{ id: index + 1, name: post.dealer }}
+          />
+        ))}
       </div>
     </>
   )

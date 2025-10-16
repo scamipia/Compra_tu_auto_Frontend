@@ -2,12 +2,86 @@
   background-color: var(--card-background);
   border-radius: 5px;
   box-shadow: 0 1px 3px var(--shadow-color);
-  padding: 10px;
-  width: 200px;
+  padding: 20px;
+  width: 300px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 350px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .modelo-card img {
   width: 100%;
   border-radius: 5px;
+}
+
+.modelo-card:hover {
+  transform: scale(1.03);
+}
+
+.dealer-link {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.dealer-link:hover {
+  text-decoration: underline;
+}
+
+.modelo-card .price {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.modelo-card .dealer {
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+.modelo-card .dealer a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.modelo-card .dealer a:hover {
+  text-decoration: underline;
+}
+
+.modelo-card:hover {
+  transform: scale(1.03);
+}
+
+.dealer-link {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.dealer-link:hover {
+  text-decoration: underline;
+}
+
+.modelo-card .price {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.modelo-card .dealer {
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+.modelo-card .dealer a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.modelo-card .dealer a:hover {
+  text-decoration: underline;
 }

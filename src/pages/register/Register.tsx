@@ -22,7 +22,6 @@ export default function Register() {
       const res = await Api.register({ name, username, password, role })
       const { username: uname, token, role: userRole } = res.data
 
-      // Crear el usuario igual que en login
       const newUser = {
         id: 0,
         username: uname,
@@ -30,14 +29,11 @@ export default function Register() {
         role: userRole
       }
 
-      // Guardar token y user
       localStorage.setItem('token', token)
       localStorage.setItem('user', JSON.stringify(newUser))
 
-      // Actualizar el contexto global
       setUser(newUser)
 
-      // Redirigir al inicio (ya logueado)
       navigate('/')
     } catch (err) {
       console.error('Error en registro:', err)
