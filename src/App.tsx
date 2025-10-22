@@ -40,7 +40,7 @@ function App() {
             name={`${post.make} ${post.model}`}
             price={`$${post.price.toLocaleString()}`}
             imageUrl={`/images/${post.image}`}
-            dealer={{ id: post.dealerId, name: post.dealer }} // ✅ dealerId real
+            dealer={{ id: post.dealerId, name: post.dealer }}
           />
         ))}
       </div>

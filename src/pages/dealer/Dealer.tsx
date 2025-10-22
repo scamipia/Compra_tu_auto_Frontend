@@ -6,25 +6,25 @@ import type { Dealer, PostResponseDTO } from '../../types'
 import Api from '../../services/Api'
 
 export default function Dealer() {
-  const { id } = useParams()
+  const { id } = useParams<{ id: string }>()
   const [dealer, setDealer] = useState<Dealer | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-
   useEffect(() => {
     const fetchDealer = async () => {
       try {
-        const response = await Api.getDealer(id!)
+        if (!id) return
+        const response = await Api.getDealer(id)
         const data = response.data
         const dealerData: Dealer = {
-          id: data.id.toString(),
+          id: data.id,
           name: data.name,
           posts: data.posts
         }
         setDealer(dealerData)
       } catch (err: any) {
-        setError(err.message)
+        setError(err.message || 'Error al cargar la concesionaria')
       } finally {
         setLoading(false)
       }
@@ -43,11 +43,11 @@ export default function Dealer() {
         {dealer.posts.map((post: PostResponseDTO) => (
           <ModelCard
             key={post.id}
-            id={post.id}  // <- usamos el id real del post
+            id={post.id}
             name={`${post.make} ${post.model}`}
             price={`$${post.price.toLocaleString('es-AR')}`}
             imageUrl={`/images/${post.image}`} 
-            dealer={{ id: Number(id), name: post.dealer }}
+            dealer={{ id: post.dealerId, name: post.dealer }}
           />
         ))}
       </div>

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Api from '../../services/Api'
 import type { PostResponseDTO } from '../../types'
@@ -6,6 +6,7 @@ import './CarDetail.css'
 
 export default function CarDetail() {
   const { id } = useParams<{ id: string }>()
+  const navigate = useNavigate()
   const [post, setPost] = useState<PostResponseDTO | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -38,11 +39,12 @@ export default function CarDetail() {
       />
       <h2>{post.make} {post.model}</h2>
       <p className="price">${post.price.toLocaleString('es-AR')}</p>
-      <p>
-        Publicado por:{' '}
-        <a className="dealerLink" href={`/dealer/${post.dealerId}`}>
-          {post.dealer}
-        </a>
+      <p
+        className="dealerLink"
+        onClick={() => navigate(`/dealer/${post.dealerId}`)}
+        style={{ cursor: 'pointer' }}
+      >
+        Publicado por: {post.dealer}
       </p>
     </div>
   )
