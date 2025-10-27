@@ -14,9 +14,10 @@ function App() {
     const fetchPosts = async () => {
       try {
         const response = await Api.searchPosts({ page: 0, size: 10 })
-        setPosts(response.data.content)
+        setPosts(response.data.content || [])
       } catch (error) {
         console.error('Error cargando publicaciones:', error)
+        setPosts([])
       } finally {
         setLoading(false)
       }

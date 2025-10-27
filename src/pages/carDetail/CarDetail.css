@@ -47,8 +47,16 @@
   transition: color 0.2s ease;
 }
 
-.car-detail a.dealerLink {
+.car-detail .dealerLink {
   color: var(--link);
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-block;
 }
 
-
+.car-detail .dealerLink:hover {
+  text-decoration: underline;
+  color: var(--link-hover);
+}

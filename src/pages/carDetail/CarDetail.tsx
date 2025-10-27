@@ -42,7 +42,6 @@ export default function CarDetail() {
       <p
         className="dealerLink"
         onClick={() => navigate(`/dealer/${post.dealerId}`)}
-        style={{ cursor: 'pointer' }}
       >
         Publicado por: {post.dealer}
       </p>
