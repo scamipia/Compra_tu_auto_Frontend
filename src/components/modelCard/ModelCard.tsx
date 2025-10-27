@@ -1,17 +1,25 @@
+import type { ModelCardProps } from '../../types'
 import './ModelCard.css'
+import { useNavigate } from 'react-router-dom'
 
-interface ModelCardProps {
-  name: string
-  price: string
-  imageUrl: string
-}
+export default function ModelCard({ id, name, price, imageUrl, dealer }: ModelCardProps) {
+  const navigate = useNavigate()
 
-export default function ModelCard({ name, price, imageUrl }: ModelCardProps) {
   return (
-    <div className="modelo-card">
+    <div className="modelo-card" onClick={() => navigate(`/post/${id}`)}>
       <img src={imageUrl} alt={name} />
       <h3>{name}</h3>
-      <p>{price}</p>
+      <p className="price">{price}</p>
+
+      <p
+        className="dealer"
+        onClick={(e) => {
+          e.stopPropagation()
+          navigate(`/dealer/${dealer.id}`)
+        }}
+      >
+        {dealer.name}
+      </p>
     </div>
   )
 }

@@ -11,6 +11,8 @@
   align-items: center;
   height: 350px;
   box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .modelo-card img {
@@ -30,4 +32,27 @@
   margin-top: 15px;
   font-weight: bold;
   color: var(--primary-color);
+}
+
+.modelo-card:hover {
+  transform: scale(1.03);
+}
+
+.modelo-card .price {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.modelo-card .dealer {
+  margin-top: 4px;
+  font-size: 0.95rem;
+  color: var(--link);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modelo-card .dealer:hover {
+  text-decoration: underline;
+  color: var(--link-hover);
 }
