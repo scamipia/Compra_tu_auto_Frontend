@@ -2,18 +2,28 @@
   /* 🎨 Colores principales */
   --primary-color: #A50411; 
   --primary-hover: #8a0410;
+  
+  /* 🪄 Fondos */
   --background-color: #f0f0f0;
   --card-background: #ffffff;
-  
+
   /* 🖋️ Texto */
   --text-color: #333333;
   --text-light: #666666;
-  --error-color: #d9534f;
   --black: #000000;
+  --white: #ffffff;
+
+    /* 🔗 Links */
   --link: #0077cc;
   --link-hover: #005fa3;
 
   /* 🧱 Bordes y sombras */
   --border-color: #cccccc;
   --shadow-color: rgba(0, 0, 0, 0.1);
+
+    /* ⚠️ Estados */
+    --error-bg: #f8d7da;
+    --error-text: #721c24;
+    --success-bg: #d4edda;
+    --success-text: #155724;
 }

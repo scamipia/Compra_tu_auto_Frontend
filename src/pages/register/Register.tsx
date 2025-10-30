@@ -11,7 +11,7 @@ export default function Register() {
   const [name, setName] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [role, setRole] = useState('USER')
+  const [role, setRole] = useState('COSTUMER')
   const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -67,7 +67,7 @@ export default function Register() {
           required
         />
         <select value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value="USER">Usuario</option>
+          <option value="COSTUMER">Usuario</option>
           <option value="ADMIN">Administrador</option>
         </select>
 

@@ -41,7 +41,7 @@ describe('Register Component', () => {
 
   it('llama a la API y navega correctamente cuando el registro es exitoso', async () => {
     (Api.register as jest.Mock).mockResolvedValue({
-      data: { username: 'testuser', token: 'fake-token', role: 'USER' }
+      data: { username: 'testuser', token: 'fake-token', role: 'COSTUMER' }
     })
 
     render(
@@ -59,7 +59,7 @@ describe('Register Component', () => {
     fireEvent.change(screen.getByPlaceholderText(/Contraseña/i), {
       target: { value: '123456' }
     })
-    fireEvent.change(screen.getByRole('combobox'), { target: { value: 'USER' } })
+    fireEvent.change(screen.getByRole('combobox'), { target: { value: 'COSTUMER' } })
 
     fireEvent.click(screen.getByRole('button', { name: /Registrarse/i }))
 
@@ -68,13 +68,13 @@ describe('Register Component', () => {
         name: 'Test Name',
         username: 'testuser',
         password: '123456',
-        role: 'USER'
+        role: 'COSTUMER'
       })
       expect(mockSetUser).toHaveBeenCalledWith({
         id: 0,
         username: 'testuser',
         name: 'Test Name',
-        role: 'USER'
+        role: 'COSTUMER'
       })
       expect(mockNavigate).toHaveBeenCalledWith('/')
       expect(localStorage.getItem('token')).toBe('fake-token')
@@ -99,7 +99,7 @@ describe('Register Component', () => {
     fireEvent.change(screen.getByPlaceholderText(/Contraseña/i), {
       target: { value: '123456' }
     })
-    fireEvent.change(screen.getByRole('combobox'), { target: { value: 'USER' } })
+    fireEvent.change(screen.getByRole('combobox'), { target: { value: 'COSTUMER' } })
 
     fireEvent.click(screen.getByRole('button', { name: /Registrarse/i }))
 

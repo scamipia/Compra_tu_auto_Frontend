@@ -35,14 +35,6 @@ const register = async (body: {
     return post(`${API_BASE_URL}register`, body);
 };
 
-const getAdmin = () => {
-    return get(`${API_BASE_URL}admin`,header())
-}
-
-const getUser = () => {
-    return get(`${API_BASE_URL}user`,header())
-}
-
 const searchPosts = async (filters: {
     dealerName?: string
     make?: string
@@ -73,14 +65,22 @@ const getPost = async (postId: string | number) => {
     return get(`/post/${postId}`)
 }
 
+const publishPost = async (body: { price: number; carId: number; description: string }) => {
+    return post(`${API_BASE_URL}dealer/publish`, body, header())
+}
+
+const getAllCars = async () => {
+    return get(`/car/all`)
+}
+
 const Api = {
     login,
     register,
-    getAdmin,
-    getUser,
     searchPosts,
     getDealer,
     getPost,
+    publishPost,
+    getAllCars,
 }
 
 export default Api

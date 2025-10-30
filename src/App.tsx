@@ -34,7 +34,7 @@ function App() {
       <SearchBar />
 
       <div className="modelos">
-        {posts.map((post) => (
+        {Array.isArray(posts) && posts.map((post) => (          
           <ModelCard
             key={post.id}
             id={post.id}
