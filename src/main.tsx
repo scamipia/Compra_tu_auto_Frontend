@@ -8,6 +8,8 @@ import Login from './pages/login/Login'
 import Register from './pages/register/Register'
 import CarDetail from './pages/carDetail/CarDetail'
 import Dealer from './pages/dealer/Dealer'
+import ProtectedRoute from './components/ProtectedRoute'
+import Publish from './pages/publish/Publish'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -19,6 +21,14 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/register" element={<Register />} />
           <Route path="/post/:id" element={<CarDetail />} />
           <Route path="/dealer/:id" element={<Dealer />} />
+          <Route
+            path="/publish"
+            element={
+              <ProtectedRoute allowedRoles={['DEALER']}>
+                <Publish />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </UserProvider>

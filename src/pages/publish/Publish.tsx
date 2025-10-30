@@ -128,8 +128,12 @@ export default function Publish() {
           />
         </div>
 
-        <button type="submit" className="submit-button">
-          Publicar Auto
+        <button
+          type="submit"
+          className="submit-button"
+          disabled={loading}
+        >
+          {loading ? 'Publicando...' : 'Publicar Auto'}
         </button>
       </form>
     </div>

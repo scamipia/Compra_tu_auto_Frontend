@@ -20,6 +20,9 @@ export default function Header() {
       <nav>
         <button>Comprar</button>
         <button>Vender</button>
+        {user?.role === 'DEALER' && (
+          <button onClick={() => navigate('/publish')}>Publicar auto</button>
+        )}
       </nav>
 
       <div className="user-section">
